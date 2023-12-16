@@ -10,7 +10,7 @@
         "nodejs",
         "react"
       ],
-      "likes": 19,
+      "likes": 21,
       "isSaved": false,
       "createdAt": "2022-07-15"
     },
@@ -53,7 +53,7 @@
         "testing",
         "programming"
       ],
-      "likes": 90,
+      "likes": 92,
       "isSaved": true,
       "createdAt": "2023-01-13"
     },

@@ -8,7 +8,7 @@ const RelatedBlogs =({id, tags})=>{
 //fetching related blogs
     useEffect(()=>{
         dispatch(fetchRelatedBlogs({id, tags}))
-    },[dispatch, id, tags])
+    },[dispatch, id])
 
     //decide to rendering the content
     let content = null;
@@ -20,13 +20,13 @@ const RelatedBlogs =({id, tags})=>{
     }
     if(!isLoading && !isError && relatedBlogs.length > 0){
         content = relatedBlogs.map(rBlog=>{
-            const {title, tags, createdAt, image} = rBlog
+            const {title, tags, createdAt, image, id} = rBlog
             return <div class="card">
-            <a href="post.html">
+            <a href={`/blog/${id}`}>
                 <img src={image} class="card-image" alt="" />
             </a>
             <div class="p-4">
-                <a href="post.html" class="text-lg post-title lws-RelatedPostTitle">
+                <a href={`/blog/${id}`} class="text-lg post-title lws-RelatedPostTitle">
                 {title}
                 </a>
                 <div class="mb-0 tags">

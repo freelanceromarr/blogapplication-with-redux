@@ -6,16 +6,17 @@ import { fetchBlogs } from '../features/blogs/blogsSlice';
 const Home = () => {
     const dispatch = useDispatch();
     const {blogs, isLoading, isError, error} = useSelector(state=>state.blogs)
+    const {filter, sorting} = useSelector(state=>state.filters)
    
 
     //loading blogs from database
     useEffect(()=>{
-        dispatch(fetchBlogs())
-    },[dispatch])
+        dispatch(fetchBlogs({filter, sorting}))
+    },[dispatch, filter, sorting])
     return (
        
        <>
-        <BlogHome blogs = {blogs} />       
+        <BlogHome blogs = {blogs} isLoading={isLoading} isError ={isError} eroor={error} />       
        </>
 
     )
